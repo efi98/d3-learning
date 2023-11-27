@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #cccccc;
+}
+
+#chart {
+  background-color: #bbb6b6;
+  width: 1000px;
+  height: 500px;
+  margin: 50px auto;
+  border: 1px solid black;
+  box-shadow: 0 0 20px 0px #00000033;
+}
+
+svg {
+  background-color: #ffffff;
+}
+
+.dot {
+  stroke: #000000;
+  stroke-width: 1px;
+}
