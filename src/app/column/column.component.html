@@ -1,0 +1,15 @@
+<div id="slider">
+    <div class="range-container">
+        <span>All</span>
+        <input (input)="onSliderChange()"
+               [(ngModel)]="slider.value"
+               [max]="slider.max"
+               [min]="slider.min"
+               [title]="slider.value"
+               id="myRange"
+               type="range">
+        <span>Oldest</span>
+        <span style="color: steelblue; width: 10px;">({{ slider.value }})</span>
+    </div>
+</div>
+<div id="chart"></div>

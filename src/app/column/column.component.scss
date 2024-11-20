@@ -1,0 +1,19 @@
+#slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .range-container {
+    display: flex;
+    gap: 0.5rem;
+
+    input{
+      margin: 0;
+    }
+  }
+}
+
+#chart {
+  width: 960px;
+  height: 500px;
+}
