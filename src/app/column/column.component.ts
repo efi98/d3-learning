@@ -15,8 +15,8 @@ export class ColumnComponent implements OnInit {
     };
     data: any;
     private svg: any;
-    private x: any;
-    private y: any;
+    private xScale: any;
+    private yScale: any;
     private height!: number;
 
     ngOnInit(): void {
@@ -37,38 +37,38 @@ export class ColumnComponent implements OnInit {
             .append('g')
             .attr('transform', `translate(${margin.left},${margin.top})`);
 
-        this.x = d3.scaleBand()
+        this.xScale = d3.scaleBand()
             .range([0, width])
             .padding(0.1);
 
 
-        this.y = d3.scaleLinear()
+        this.yScale = d3.scaleLinear()
             .range([height, 0]);
         let svg = this.svg;
-        let x = this.x;
-        let y = this.y;
+        let xScale = this.xScale;
+        let yScale = this.yScale;
 
         d3.csv(this.dataPath, formatData).then((data) => {
             this.data = data;
             let maxValue = d3.max(data, d => d.age);
             this.slider.max = maxValue;
 
-            x.domain(data.map(d => d.name));
-            y.domain([0, maxValue])
+            xScale.domain(data.map(d => d.name));
+            yScale.domain([0, maxValue])
                 .nice();
 
-            svg.append('g').call(d3.axisLeft(y));
+            svg.append('g').call(d3.axisLeft(yScale));
             svg.append('g')
                 .attr('transform', `translate(${0},${height})`)
-                .call(d3.axisBottom(x))
+                .call(d3.axisBottom(xScale))
                 .selectAll('text')
-                .attr('x', x.bandwidth() / 2)
+                .attr('x', xScale.bandwidth() / 2)
                 .attr('y', 0)
                 .attr('dy', '0.35em')
                 .attr('transform', `rotate(90)`)
                 .attr('text-anchor', `start`);
 
-            this.createBars(data, svg, x, y, height);
+            this.createBars(data, svg, xScale, yScale, height);
 
             console.log(data);
         }).catch((error) => {
@@ -124,7 +124,7 @@ export class ColumnComponent implements OnInit {
 
     onSliderChange() {
         let filteredData = this.data.filter((d: any) => d.age >= this.slider.value);
-        this.createBars(filteredData, this.svg, this.x, this.y, this.height)
+        this.createBars(filteredData, this.svg, this.xScale, this.yScale, this.height)
         console.log('filteredData', filteredData);
         // const currentSliderVal = (event.target as HTMLInputElement).value;
         // console.log('Slider value changed to:', currentSliderVal);

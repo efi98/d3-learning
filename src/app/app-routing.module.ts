@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ColumnComponent} from "./column/column.component";
-import {PieComponent} from "./pie/pie.component";
+import {ScatterComponent} from "./pie/scatter.component";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'pie' },
+  { path: '', pathMatch: 'full', redirectTo: 'scatter' },
   {
-    path: 'pie',
-    title: 'Pie',
-    component: PieComponent
+    path: 'scatter',
+    title: 'Scatter',
+    component: ScatterComponent
   },
   {
     path: 'column',
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'pie'
+    redirectTo: 'scatter'
   }
 ];
 
