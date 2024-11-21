@@ -84,7 +84,11 @@ export class ScatterComponent implements OnInit {
                 .attr('cy', (d: any) => yScale(d.rooms))
                 .attr('r', (d: any) => rScale(d.value))
                 .attr('fill', (d: any) => cScale(d.charles))
-                .style('opacity', (d: any) => d.charles == 1 ? 1 : 0.3);
+                .style('opacity', 0.5)
+                .style('r', (d: any) => rScale(0))
+                .transition().duration(1000)
+                .style('r', (d: any) => rScale(d.value))
+            ;
         })
     }
 

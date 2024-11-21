@@ -62,7 +62,7 @@ export class ColumnComponent implements OnInit {
                 .attr('transform', `translate(${0},${height})`)
                 .call(d3.axisBottom(xScale))
                 .selectAll('text')
-                .attr('x', xScale.bandwidth() / 2)
+                .attr('x', xScale.bandwidth())
                 .attr('y', 0)
                 .attr('dy', '0.35em')
                 .attr('transform', `rotate(90)`)
@@ -125,8 +125,5 @@ export class ColumnComponent implements OnInit {
     onSliderChange() {
         let filteredData = this.data.filter((d: any) => d.age >= this.slider.value);
         this.createBars(filteredData, this.svg, this.xScale, this.yScale, this.height)
-        console.log('filteredData', filteredData);
-        // const currentSliderVal = (event.target as HTMLInputElement).value;
-        // console.log('Slider value changed to:', currentSliderVal);
     }
 }
