@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ColumnComponent} from "./column/column.component";
-import {ScatterComponent} from "./pie/scatter.component";
+import {ScatterComponent} from "./scatter/scatter.component";
+import {LineComponent} from "./line/line.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'scatter' },
@@ -14,6 +15,11 @@ const routes: Routes = [
     path: 'column',
     title: 'Column',
     component: ColumnComponent
+  },
+  {
+    path: 'line',
+    title: 'Line',
+    component: LineComponent
   },
   {
     path: '**',
