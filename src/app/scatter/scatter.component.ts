@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
-    selector: 'app-pie',
+    selector: 'app-scatter',
     templateUrl: './scatter.component.html',
     styleUrls: ['./scatter.component.scss']
 })
